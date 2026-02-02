@@ -1,0 +1,52 @@
+Loading IMDB test dataset...
+Using 200 samples for explanation
+Creating CPU pipeline...
+Device set to use cpu
+/opt/conda/lib/python3.10/site-packages/transformers/pipelines/text_classification.py:111: UserWarning: `return_all_scores` is now deprecated,  if want a similar functionality use `top_k=None` instead of `return_all_scores=True` or `top_k=1` instead of `return_all_scores=False`.
+  warnings.warn(
+Creating GPU pipeline (this will load the same checkpoint onto GPU)...
+Device set to use cuda:0
+Running baseline full-dataset prediction (CPU)...
+Running baseline full-dataset prediction (GPU)...
+Running SHAP explainer (CPU pipeline)...
+PartitionExplainer explainer: 201it [27:16,  8.18s/it]                                 
+Running SHAP explainer (GPU pipeline)...                                               
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+PartitionExplainer explainer: 201it [06:11,  1.91s/it]                                 
+
+Benchmark summary:
+Samples: 200
+Model: distilbert-base-uncased-finetuned-sst-2-english
+
+CPU run:
+  explainer total: 1637.098s
+  model cumulative (measured): 1601.768s
+  explainer overhead (SHAP pre/post): 35.330s
+
+GPU run:
+  explainer total: 371.625s
+  model cumulative (measured): 344.956s
+  explainer overhead (SHAP pre/post): 26.669s
+
+Model cumulative speedup (CPU_time / GPU_time): 4.64x
+Explainer total time ratio (CPU / GPU): 4.41x
+
+Full results (JSON):
+{
+  "n_samples": 200,
+  "model": "distilbert-base-uncased-finetuned-sst-2-english",
+  "cpu": {
+    "baseline_pred_time": 3.2556091949809343,
+    "explainer_total_time": 1637.0975487240357,
+    "model_cumulative_time": 1601.76804279082,
+    "model_call_count": 17200,
+    "explainer_overhead_time": 35.32950593321584
+  },
+  "gpu": {
+    "baseline_pred_time": 0.6856795030180365,
+    "explainer_total_time": 371.62513253395446,
+    "model_cumulative_time": 344.95622880465817,
+    "model_call_count": 17200,
+    "explainer_overhead_time": 26.66890372929629
+  }
+}

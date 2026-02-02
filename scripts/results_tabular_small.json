@@ -1,0 +1,24 @@
+{
+  "n_features": 10,
+  "n_train": 200,
+  "n_explain": 5,
+  "python_shap": {
+    "cpu_model_train_time": 0.004063233966007829,
+    "baseline_pred_time_cpu": 0.0002349461428821087,
+    "explainer_total_time": 7.170109937898815,
+    "model_cumulative_time": 2.4609780956525356,
+    "model_call_count": 119,
+    "gpu_model": {
+      "explainer_total_time": 0.24044910701923072,
+      "model_cumulative_time": 0.21202545333653688,
+      "model_call_count": 119
+    }
+  },
+  "cuml": {
+    "gpu_model_train_time": 0.6565681570209563,
+    "baseline_pred_time_gpu": 0.07669657305814326,
+    "explainer_total_time": 3.0563717430923134,
+    "model_cumulative_time": 0.07585879601538181,
+    "model_call_count": 51
+  }
+}
